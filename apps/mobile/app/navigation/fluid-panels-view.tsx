@@ -37,6 +37,7 @@ import {
   getSpecificOrientation,
   removeOrientationListener,
   removeSpecificOrientationListener
+  //@ts-ignore
 } from "react-native-orientation";
 import Animated, {
   useAnimatedStyle,
@@ -527,7 +528,8 @@ const onChangeTab = async (event: { i: number; from: number }) => {
       });
     } else {
       if (
-        useTabStore.getState().getTab(useTabStore.getState().currentTab)?.locked
+        useTabStore.getState().getTab(useTabStore.getState().currentTab)
+          ?.session?.locked
       ) {
         eSendEvent(eUnlockNote);
       }
@@ -547,7 +549,9 @@ const onChangeTab = async (event: { i: number; from: number }) => {
         const locked = note && (await db.vaults.itemExists(note));
         if (locked) {
           useTabStore.getState().updateTab(tab.id, {
-            locked: true
+            session: {
+              locked: true
+            }
           });
         }
       }
