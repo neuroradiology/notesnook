@@ -33,6 +33,7 @@ import {
   eUnSubscribeEvent
 } from "../app/services/event-manager";
 import { eOnLoadNote } from "../app/utils/events";
+import { defaultBorderRadius } from "../app/utils/size";
 
 const EditorMobileSourceUrl =
   Platform.OS === "android"
@@ -236,7 +237,7 @@ export const Editor = ({ onChange, onLoad, editorRef }) => {
               height: 16,
               width: "100%",
               backgroundColor: colors.secondary.background,
-              borderRadius: 5,
+              borderRadius: defaultBorderRadius,
               marginTop: 10
             }}
           />
@@ -246,7 +247,7 @@ export const Editor = ({ onChange, onLoad, editorRef }) => {
               height: 16,
               width: "100%",
               backgroundColor: colors.secondary.background,
-              borderRadius: 5,
+              borderRadius: defaultBorderRadius,
               marginTop: 10
             }}
           />
@@ -256,7 +257,7 @@ export const Editor = ({ onChange, onLoad, editorRef }) => {
               height: 16,
               width: "60%",
               backgroundColor: colors.secondary.background,
-              borderRadius: 5,
+              borderRadius: defaultBorderRadius,
               marginTop: 10
             }}
           />

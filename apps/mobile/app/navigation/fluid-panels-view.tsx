@@ -543,7 +543,7 @@ const onChangeTab = async (event: { i: number; from: number }) => {
 
       // Lock all tabs with locked notes...
       for (const tab of useTabStore.getState().tabs) {
-        const noteId = useTabStore.getState().getTab(tab.id)?.noteId;
+        const noteId = useTabStore.getState().getTab(tab.id)?.session?.noteId;
         if (!noteId) continue;
         const note = await db.notes.note(noteId);
         const locked = note && (await db.vaults.itemExists(note));
